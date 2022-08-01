@@ -17,7 +17,11 @@ function Login() {
       const user = await axios.post(`${config.api}`,values)
       localStorage.setItem('react_app_token', user.data.token)
       alert(user.data.message)
-      navigate('/dashboard')
+      if(user.data.message === 'Successfully Logged In!!')
+      {
+        navigate('/dashboard')
+      }
+      
       } catch (error) {
         console.log(error)
       }
